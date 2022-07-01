@@ -20,6 +20,8 @@ spec:
           containers:
             - name: hello-helidon-container
               image: "iad.ocir.io/idivyfxzwa6h/helidon-test/helidon-greet-app-v1:1.0.0-1"
+              imagePullSecrets:
+              - name: ocirsecrets
               ports:
                 - containerPort: 8080
                   name: http
