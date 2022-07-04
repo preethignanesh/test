@@ -10,17 +10,11 @@ spec:
   selector:
     matchLabels:
       app: hello-helidon
-  template:
-    metadata:
-      labels:
-        app: hello-helidon
-    spec:
-      containers:
-      - name: bluegreen-demo
-        image: "iad.ocir.io/idivyfxzwa6h/helidon-test3/helidon-greet-app:1.1.0"
-        imagePullPolicy: Always
+  workloadRef: 
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hello-helidon-deployment
   strategy:
     blueGreen:
       autoPromotionEnabled: false
       activeService: istio-ingressgateway
-      previewService: istio-ingress
