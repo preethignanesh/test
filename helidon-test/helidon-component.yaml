@@ -19,7 +19,7 @@ spec:
         podSpec:
           containers:
             - name: hello-helidon-container
-              image: "iad.ocir.io/idivyfxzwa6h/helidon-test/helidon-greet-app-v1:1.0.0-1"
+              image: "iad.ocir.io/idivyfxzwa6h/helidon-test3/helidon-greet-app:1.1.0"
               imagePullSecrets:
               - name: ocirsecrets
               ports:
