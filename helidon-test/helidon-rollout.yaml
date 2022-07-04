@@ -24,4 +24,4 @@ spec:
     blueGreen:
       autoPromotionEnabled: false
       activeService: istio-ingressgateway
-      previewService: istio-ingressgateway
+      previewService: istio-ingress
