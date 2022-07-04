@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: bluegreen-demo
+  labels:
+    app: hello-helidon
+spec:
+  replicas: 3
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: hello-helidon
+  template:
+    metadata:
+      labels:
+        app: hello-helidon
+    spec:
+      containers:
+      - name: bluegreen-demo
+        image: "iad.ocir.io/idivyfxzwa6h/helidon-test3/helidon-greet-app:1.1.0"
+        imagePullPolicy: Always
+  strategy:
+    blueGreen:
+      autoPromotionEnabled: false
+      activeService: istio-ingressgateway
+      previewService: istio-ingressgateway
