@@ -4,7 +4,7 @@ metadata:
   name: helidontest-appconf
   namespace: hello-helidon
   annotations:
-    version: v1.0.0
+    version: v1.0.1
     description: "Non-JRF WebLogic Domain"
 spec:
   components:
