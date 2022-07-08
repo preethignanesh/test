@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: fleet-local
+  name: rollout-demo
+  labels:
+    app: rollout-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rollout-demo
+  template:
+    metadata:
+      labels:
+        app: rollout-demo
+    spec:
+      containers:
+      - name: rollout-demo
+        image: argoproj/rollouts-demo:blue
+        ports:
+        - containerPort: 80
