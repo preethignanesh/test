@@ -14,5 +14,4 @@ spec:
         - reviews.152.70.200.106.nip.io
       tls: 
          mode: SIMPLE
-         serverCertificate: server.crt
-         privateKey: server.key
+         credentialName: server
