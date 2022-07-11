@@ -11,4 +11,4 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - reviews
+        - reviews.152.70.200.106.nip.io
