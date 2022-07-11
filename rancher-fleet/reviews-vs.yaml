@@ -13,11 +13,11 @@ spec:
         prefix: /review
   - route:
     - destination:
-        host: reviews.152.70.200.106.nip.io
+        host: reviews-v1
         subset: v1
       weight: 50
     - destination:
-        host: reviews.152.70.200.106.nip.io
+        host: reviews-v2
         subset: v3
       weight: 50
 ---
