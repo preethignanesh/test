@@ -7,14 +7,11 @@ spec:
     istio: ingressgateway # use istio default controller
   servers:
     - port:
-        number: 443
-        name: https
-        protocol: HTTPS
+        number: 80
+        name: http
+        protocol: HTTP
       hosts:
         - "*"
-      tls:
-        mode: SIMPLE
-        credentialName: server
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
