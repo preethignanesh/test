@@ -1,0 +1,25 @@
+apiVersion: core.oam.dev/v1alpha2
+kind: Component
+metadata:
+  name: hello-helidon-component-v2
+  namespace: hello-helidon
+spec:
+  workload:
+    apiVersion: oam.verrazzano.io/v1alpha1
+    kind: VerrazzanoHelidonWorkload
+    metadata:
+      name: hello-helidon-workload-v2
+      labels:
+        app: hello-helidon
+        version: v2
+    spec:
+      deploymentTemplate:
+        metadata:
+          name: hello-helidon-deployment-v2
+        podSpec:
+          containers:
+            - name: hello-helidon-container
+              image: "iad.ocir.io/idivyfxzwa6h/helidon-test/helidon-greet-app-v1:1.0.0-1"
+              ports:
+                - containerPort: 8080
+                  name: http
