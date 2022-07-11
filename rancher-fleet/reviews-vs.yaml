@@ -3,16 +3,32 @@ kind: VirtualService
 metadata:
   name: reviews
 spec:
-  gateways:
-  - reviews-gateway
   hosts:
-  - reviews.152.70.200.106.nip.io
+  - reviews
   http:
-  - match:
-    - uri:
-        prefix: /review
   - route:
     - destination:
-        host: reviews-v1
-        port:
-          number: 9080
+        host: reviews
+        subset: v1
+      weight: 50
+    - destination:
+        host: reviews
+        subset: v3
+      weight: 50
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
+  - name: v3
+    labels:
+      version: v3
