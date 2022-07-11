@@ -6,7 +6,7 @@ spec:
   gateways:
   - reviews-gateway
   hosts:
-  - reviews
+  - reviews.152.70.200.106.nip.io
   http:
   - match:
     - uri:
