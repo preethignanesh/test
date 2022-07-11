@@ -3,9 +3,14 @@ kind: VirtualService
 metadata:
   name: reviews
 spec:
+  gateways:
+  - reviews-gateway
   hosts:
   - reviews
   http:
+  - match:
+    - uri:
+        prefix: /review
   - route:
     - destination:
         host: reviews
