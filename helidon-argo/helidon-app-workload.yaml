@@ -1,14 +1,14 @@
 apiVersion: core.oam.dev/v1alpha2
 kind: ApplicationConfiguration
 metadata:
-  name: helidontest-appconf
+  name: helidon-appconf
   namespace: helidon-config
   annotations:
     version: v1.0.0
     description: "Non-JRF WebLogic Domain"
 spec:
   components:
-    - componentName: hello-helidon-component
+    - componentName: helidon-component
       traits:
         - trait:
             apiVersion: oam.verrazzano.io/v1alpha1
@@ -19,7 +19,7 @@ spec:
             apiVersion: oam.verrazzano.io/v1alpha1
             kind: IngressTrait
             metadata:
-              name: hello-helidon-ingress
+              name: helidon-ingress
             spec:
               rules:
                 - paths:
